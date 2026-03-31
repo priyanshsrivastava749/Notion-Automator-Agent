@@ -7,7 +7,7 @@ async function callOllama(prompt, systemInstruction, keys = {}) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: "llama3", // The local model to target (can be mistral, llama3, etc.)
+        model: "llama3.2", // The local model to target
         messages: [
           { role: "system", content: systemInstruction },
           { role: "user", content: prompt }

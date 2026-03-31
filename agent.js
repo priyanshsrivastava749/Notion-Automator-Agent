@@ -24,7 +24,15 @@ JSON RESPONSE SCHEMA:
   "content": "The text to save or reply. Leave empty if READ_NOTION.",
   "title": "Title for the new page (only if CREATE_PAGE)",
   "target_id": "Optional. The ID of the specific sub-page you want to interact with, if any."
-}`;
+}
+
+EXAMPLES:
+User: "Save this note: Buy milk"
+Agent: {"action": "WRITE_NOTION", "content": "Buy milk"}
+
+User: "Create a page named Math"
+Agent: {"action": "CREATE_PAGE", "title": "Math", "content": ""}
+`;
 
 async function runAgent(userMessage, overrideModel = "auto", keys = {}) {
   console.log(`[Agent] Received message: "${userMessage}"`);
