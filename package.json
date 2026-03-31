@@ -1,0 +1,28 @@
+{
+  "name": "notion-automator-agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyanshsrivastava749/Notion-Automator-Agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/priyanshsrivastava749/Notion-Automator-Agent/issues"
+  },
+  "homepage": "https://github.com/priyanshsrivastava749/Notion-Automator-Agent#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@notionhq/client": "^5.16.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1"
+  }
+}

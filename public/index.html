@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion Automator Agent</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-titles">
+        <h1>Notion Automator</h1>
+        <p>AI Agent Workspace Assistant</p>
+      </div>
+      <div class="model-toggle">
+        <label for="model-select">Provider:</label>
+        <select id="model-select">
+          <option value="auto">Auto (Gemini -> Ollama)</option>
+          <option value="gemini">Gemini API Only</option>
+          <option value="local">Local AI (Ollama) Only</option>
+        </select>
+        <button id="settings-btn" class="icon-btn" title="Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    
+    <main class="chat-container" id="chat-container">
+      <div class="message support-message">
+        <div class="avatar">🤖</div>
+        <div class="bubble">
+          Hello! I'm your hybrid AI agent connected to Notion. Ask me to save a note or read your workspace!
+        </div>
+      </div>
+    </main>
+
+    <footer class="input-area">
+      <form id="chat-form">
+        <input type="text" id="user-input" placeholder="Type a message (e.g., 'Save a note about meeting')" autocomplete="off" required />
+        <button type="submit" id="send-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </form>
+    </footer>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="settings-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>API Configuration</h2>
+        <button class="icon-btn close-btn" id="close-settings-btn">✖</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="setting-gemini-key">Gemini API Key</label>
+          <input type="password" id="setting-gemini-key" placeholder="AI Studio Key">
+        </div>
+        <div class="form-group">
+          <label for="setting-notion-key">Notion API Internal Secret</label>
+          <input type="password" id="setting-notion-key" placeholder="secret_...">
+        </div>
+        <div class="form-group">
+          <label for="setting-notion-page">Notion Target Page ID</label>
+          <input type="text" id="setting-notion-page" placeholder="32-char ID">
+        </div>
+        <div class="form-group">
+          <label for="setting-ollama-url">Local AI API URL (Optional)</label>
+          <input type="text" id="setting-ollama-url" placeholder="http://localhost:11434/api/chat" value="http://localhost:11434/api/chat">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="save-settings-btn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
